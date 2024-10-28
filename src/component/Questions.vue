@@ -16,6 +16,7 @@
           class="answer"
           v-for="answer in question.answers"
           :key="answer.text"
+          @click.prevent="selectAnswer(answer.is_correct)"
         >
           {{ answer.text }}
         </div>
@@ -28,5 +29,11 @@
 export default {
   name: "Questions",
   props: ["questions", "questionsAnswerd"],
+  emits: ["question-answered"],
+  methods: {
+    selectAnswer(is_correct) {
+      this.$emit("question-answered", is_correct);
+    },
+  },
 };
 </script>

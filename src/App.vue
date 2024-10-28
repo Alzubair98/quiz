@@ -4,10 +4,13 @@
       v-if="questionsAnswerd < questions.length"
       :questions="questions"
       :questionsAnswerd="questionsAnswerd"
+      @question-answered="selectAnswer"
     />
     <results v-else />
 
-    <button type="button" class="reset-btn">Reset</button>
+    <button type="button" class="reset-btn" @click.prevent="reset">
+      Reset
+    </button>
   </div>
 </template>
 
@@ -23,6 +26,7 @@ export default {
   data() {
     return {
       questionsAnswerd: 0,
+      totalCorrect: 0,
       questions: [
         {
           q: "What is 2 + 2?",
@@ -99,6 +103,17 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    selectAnswer(is_correct) {
+      if (is_correct) {
+        this.totalCorrect++;
+      }
+      this.questionsAnswerd++;
+    },
+    reset() {
+      (this.totalCorrect = 0), (this.questionsAnswerd = 0);
+    },
   },
 };
 </script>
