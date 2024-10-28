@@ -26,7 +26,7 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Alzubair98/vue-quiz-project.git
+   git clone https://github.com/Alzubair98/quiz.git
    cd vue-quiz-project
    ```
 2. **Install dependencies**
