@@ -6,8 +6,9 @@
     </div>
     <div
       class="single-question"
-      v-for="question in questions"
+      v-for="(question, index) in questions"
       :key="question.q"
+      v-show="questionsAnswerd === index"
     >
       <div class="question">{{ question.q }}</div>
       <div class="answers">
@@ -26,6 +27,6 @@
 <script>
 export default {
   name: "Questions",
-  props: ["questions"],
+  props: ["questions", "questionsAnswerd"],
 };
 </script>
