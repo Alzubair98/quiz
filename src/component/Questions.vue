@@ -9,7 +9,7 @@
         {{ questionsAnswerd }} out of {{ questions.length }} questions answered
       </div>
     </div>
-    <transition-group name="fade">
+    <transition-group name="fade" mode="out-in">
       <div
         class="single-question"
         v-for="(question, index) in questions"
